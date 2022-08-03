@@ -38,13 +38,13 @@ void sendAtCommand() {
         if (atResponse.getValueLength() > 0) {
           cout << "Command value length is ";
           cout << dec << (int)atResponse.getValueLength();
-		  cout << endl;
+	  cout << endl;
 		  
           cout << "Command value: ";
           
           for (int i = 0; i < atResponse.getValueLength(); i++) {
             cout << hex << (int)atResponse.getValue()[i];
-			cout << " ";
+	    cout << " ";
           }
 
           cout << endl;
@@ -53,7 +53,7 @@ void sendAtCommand() {
       else {
         cout << "Command return error code: ";
         cout << hex << (int)atResponse.getStatus();
-		cout << endl;
+	cout << endl;
       }
     } else {
       cout << "Expected AT response but got ";
@@ -64,7 +64,7 @@ void sendAtCommand() {
     if (xbee.getResponse().isError()) {
       cout << "Error reading packet.  Error code: ";  
       cout << dec << (int)xbee.getResponse().getErrorCode();
-	  cout << endl;
+      cout << endl;
     } 
     else {
       cout << "No response from radio";  
@@ -76,7 +76,7 @@ void sendAtCommand() {
 int main() {
   Serial.begin("/dev/ttyS0", 115200);
   xbee.begin(Serial);
-   sendAtCommand();
+  sendAtCommand();
   
   // set command to SL
   atRequest.setCommand(slCmd);  
