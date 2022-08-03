@@ -10,10 +10,10 @@ class Stream
 {
     public:
         Stream();
-		void setSerial(int _fd);
+	void setSerial(int _fd);
         int available();
         int read();
-		void flush();
+	void flush();
         void write(const uint8_t);
 		
     protected:
@@ -42,7 +42,7 @@ int Stream::read()
 void Stream::flush()
 {
     tcdrain(m_fd);
-	serialFlush(m_fd);
+    serialFlush(m_fd);
 }
 
 void Stream::write(const uint8_t ch)
@@ -70,8 +70,8 @@ int HardwareSerial::begin(const char *device, const speed_t baudrate)
 {
     // open the port
     if ((m_fd = serialOpen(device, baudrate)) < 0) {
-		return -1;
-	}
+	return -1;
+    }
 
     return 1;
 }
